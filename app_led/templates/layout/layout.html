@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css')}}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav>
+     <div class="nav-wrapper grey lighten-1">
+       <a href="#" class="brand-logo">Logo</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <li><a href="/led">led</a></li>
+         <li><a href="/escape">escape</a></li>
+       </ul>
+     </div>
+    </nav>
+    <br>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      {% endblock %}
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='js/socket.io.js')}}" charset="utf-8"></script>
+  {% block includelink %}{% endblock %}
+</html>

@@ -1,0 +1,20 @@
+{% block content %}
+  <div class="col s6 m3">
+    <div class="card grey  darken-1">
+      <div class="card-content  white-text">
+        <div class="row">
+          <div class="col">
+            <span class="card-title"> {{ porte.titre }}</span>
+          </div>
+        </div>
+        <p>{{ porte.description }}</p>
+      </div>
+      <div class="card-action">
+        <button onclick="porte({{ porte.id }}, 'close')" type="button" class="btn waves-effect red" name="button"><i class="material-icons dp48">close</i></button>
+        <button onclick="porte({{ porte.id }}, 'open')" type="button" class="btn  waves-effect green" name="material-icons"><i class="material-icons dp48">check</i> </button>
+        <button oclick="porte()" type="button" class="btn  waves-effect grey" name="material-icons"><i class="material-icons dp48">compare_arrows</i> </button>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

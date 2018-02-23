@@ -1,0 +1,23 @@
+{% block content %}
+  <div class="col s6 m3">
+    <div id="{{ enigme.name }}" class="card grey  darken-1">
+      <div class="card-content  white-text">
+        <div class="row">
+          <div class="col">
+            <button onclick="enigme({{ enigme.id }}, 'reload')" data-id="{{ enigme.id }}" class="btn-floating  waves-effect waves-light  waves-effect red" name="enigme-reload"><i class="material-icons">sync</i></button>
+          </div>
+          <div class="col">
+            <span class="card-title">{{ enigme.titre }}</span>
+          </div>
+        </div>
+        <p>{{ enigme.description }}</p>
+      </div>
+      <div class="card-action">
+        <button onclick="enigme({{ enigme.id }}, '0', 'false')" data-id="{{ enigme.id }}"  type="button" class="btn waves-effect red" name="enigme-stop"><i class="material-icons dp48">close</i></button>
+        <button onclick="enigme({{ enigme.id }}, '1', 'false')" data-id="{{ enigme.id }}" type="button" class="btn  waves-effect green" name="enigme-active" onclick="enigmestart()"><i class="material-icons dp48">check</i> </button>
+        <button onclick="enigme({{ enigme.id }}, '0', true)" data-id="{{ enigme.id }}" type="button" class="btn  waves-effect grey" name="enigme-mode"><i class="material-icons dp48">compare_arrows</i> </button>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
