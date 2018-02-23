@@ -22,7 +22,7 @@ window.onload = function(){
   enigme_socket.on('info', function(str){
     data = JSON.parse(str);
     classenigme_0 = document.getElementById('enigme_0').classList
-    if(data.enigme_0){
+    if(data.enigme_0 == "1"){
       classenigme_0.add("green");
       classenigme_0.remove("grey");
       classenigme_0.remove("red");
