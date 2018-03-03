@@ -12,17 +12,20 @@ GPIO.setup(12, GPIO.OUT)
 t = pipes.Template()
 
 bus = smbus.SMBus(1)
-address = 0x05
+address0 = 0x05
+address3 = 0x04
 
 with t.open('pipes/enigme_0', 'w') as f:
-    f.write('0--True')
+    f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_1', 'w') as f:
-    f.write('0--True')
+    f.write('0--True') #valeur,  mode-auto
+with t.open('pipes/enigme_3', 'w') as f:
+    f.write('0--True--false') # valeur,  mode-auto, restart enigme
 
-def writeNumber(value):
+def writeNumber(address, value):
     bus.write_byte(address, value)
     return -1
-def readNumber():
+def readNumber(address):
     number = bus.read_byte(address)
     return number
 
@@ -33,10 +36,10 @@ def enigme_0():
         command = f.read().split('--')
         print(command)
     if command[1] == "True":
-        GPIO.output(12, readNumber())
-        print(readNumber())
+        GPIO.output(12, readNumber(address0))
+        print(readNumber(address0))
         with t.open('pipes/enigme_0', 'w') as f:
-            f.write(str(readNumber())+"--True")
+            f.write(str(readNumber(address0))+"--True")
     if command[1] == "false":
         GPIO.output(12, int(command[0]))
 
@@ -44,13 +47,24 @@ def enigme_1():
     with t.open('pipes/enigme_1', 'r') as f:
         command = f.read().split('--')
     if command[1] == "True":
-        GPIO.output(12, readNumber())
-        print(readNumber())
+        GPIO.output(12, readNumber(address1))
         with t.open('pipes/enigme_1', 'w') as f:
-            f.write(str(readNumber())+"--True")
+            f.write(str(readNumber(address1))+"--True")
     if command[1] == "false":
         GPIO.output(12, int(command[0]))
 
+def enigme_3():
+    with t.open('pipes/enigme_3', 'r') as f:
+        command = f.read().split('--')
+    if command[1] == "True":
+        with t.open('pipes/enigme_1', 'w') as f:
+            f.write(str(readNumber(address3))+"--True--false")
+    if command[1] == "false":
+        writeNumber(address3, int(command[0]))
+    if command[2] == "True":
+        writeNumber(address3, int(2))
+
 while True:
     enigme_0()
+    enigme_3()
     time.sleep( 1 )
