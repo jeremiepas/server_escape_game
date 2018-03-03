@@ -29,9 +29,9 @@ def enigme(reponse):
     with t.open('pipes/enigme_1', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
 
-@enigmeSocket.on('enigme_4')
+@enigmeSocket.on('enigme_3')
 def enigme(reponse):
-    with t.open('pipes/enigme_4', 'w') as f:
+    with t.open('pipes/enigme_3', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
 
 @enigmeSocket.on('info')
