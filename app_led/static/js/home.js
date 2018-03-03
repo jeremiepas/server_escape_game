@@ -3,7 +3,8 @@ global_socket = io.connect('http://' + document.domain + ':' + location.port + n
 enigme_socket = io('/enigme');
 
 function enigme(id, action, auto = "true"){
-  enigme_socket.emit("enigme_0", {action: action, auto: auto})
+  console.log(id);
+  enigme_socket.emit(id, {action: action, auto: auto})
 }
 function porte(id, action) {
   enigme_socket.emit("porte", {id: id, action: action})
@@ -22,6 +23,8 @@ window.onload = function(){
   enigme_socket.on('info', function(str){
     data = JSON.parse(str);
     classenigme_0 = document.getElementById('enigme_0').classList
+    classenigme_1 = document.getElementById('enigme_1').classList
+
     if(data.enigme_0 == "1"){
       classenigme_0.add("green");
       classenigme_0.remove("grey");
@@ -30,6 +33,15 @@ window.onload = function(){
       classenigme_0.add("red");
       classenigme_0.remove("grey");
       classenigme_0.remove("green");
+    }
+    if(data.enigme_1 == "1"){
+      classenigme_1.add("green");
+      classenigme_1.remove("grey");
+      classenigme_1.remove("red");
+    } else {
+      classenigme_1.add("red");
+      classenigme_1.remove("grey");
+      classenigme_1.remove("green");
     }
   });
 

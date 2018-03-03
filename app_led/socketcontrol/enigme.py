@@ -12,8 +12,10 @@ enigmeSocket =  IOBlueprint('/enigme')
 
 def infoenigmes():
     with t.open('pipes/enigme_0', 'r') as f:
-        command = f.read().split('--')
-    return '{"enigme_0": "'+str(command[0])+'"}'
+        enigme0 = f.read().split('--')
+    with t.open('pipes/enigme_1', 'r') as f:
+        enigme1 = f.read().split('--')
+    return '{"enigme_0": "'+str(enigme0[0])+'", "enigme_1": '+str(enigme1[0])+'}'
 
 
 
@@ -24,11 +26,8 @@ def enigme(reponse):
 
 @enigmeSocket.on('enigme_1')
 def enigme(reponse):
-    with t.open('pipes/enigme_1', 'r') as f:
+    with t.open('pipes/enigme_1', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
-        # emit('0', f.read(), namespace='/enigme')
-    emit('info', 'test', namespace='/enigme')
-
 
 @enigmeSocket.on('info')
 def enigme(reponse):
