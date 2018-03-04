@@ -8,6 +8,7 @@ function enigme(id, action, auto = "true"){
 }
 
 function porte(id, action, auto = "true") {
+  console.log(id)
   porte_socket.emit(id, {action: action, auto: auto})
 }
 
@@ -53,7 +54,6 @@ window.onload = function(){
     classenigme[2] = document.getElementById('porte_2').classList
     classenigme[3] = document.getElementById('porte_3').classList
     for (var i = 0; i < classenigme.length; i++) {
-      console.log(data.porte[i])
       if(data.porte[i] == 1){
         classenigme[i].add("green");
         classenigme[i].remove("grey");
