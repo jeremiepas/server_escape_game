@@ -31,4 +31,4 @@ def enigme(reponse):
 @porteSocket.on('info_porte')
 def enigme(reponse):
     print( infoportes())
-    emit('info_porte', infoportes(), namespace='/enigme')
+    emit('info_porte', infoportes(), namespace='/porte')

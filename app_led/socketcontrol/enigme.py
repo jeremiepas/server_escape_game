@@ -44,5 +44,4 @@ def enigme(reponse):
 
 @enigmeSocket.on('info_enigme')
 def enigme(reponse):
-    print( infoenigmes())
     emit('info_enigme', infoenigmes(), namespace='/enigme')
