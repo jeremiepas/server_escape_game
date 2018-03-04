@@ -3,7 +3,7 @@ import pipes
 import time
 
 class Porte:
-    def __init__():
+    def __init__(self):
         self.bus = smbus.SMBus(1)
         self.porte_0  = 0x11 # trape apres enigme_1
         with t.open('pipes/porte_0', 'w') as f:
