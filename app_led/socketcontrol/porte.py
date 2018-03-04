@@ -23,11 +23,10 @@ def infoportes():
 
 
 
-@porteSocket.on('porte')
-def enigme(reponse):
-    reponse.get(id)
-    emit('enigme', reponse, namespace='/enigme')
-
+@porteSocket.on('porte_0')
+def porte(reponse):
+    with t.open('pipes/porte_0', 'w') as f:
+        f.write(reponse['action']+"--"+str(reponse['auto']))
 @porteSocket.on('info_porte')
 def enigme(reponse):
     print( infoportes())
