@@ -76,7 +76,7 @@ def enigme_3():
     if command[2] == "True":
         writeNumber(address3, int(2))
         print(readNumber(address3))
-        f.write(str(readNumber(address3))+"--True--false")
+        f.write(str(1)+"--True--false")
 
 while True:
     # enigme_0()
