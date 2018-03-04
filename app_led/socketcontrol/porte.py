@@ -25,6 +25,7 @@ def infoportes():
 
 @porteSocket.on('porte_0')
 def porte(reponse):
+    print(reponse)
     with t.open('pipes/porte_0', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
 @porteSocket.on('info_porte')
