@@ -13,8 +13,12 @@ t = pipes.Template()
 
 bus = smbus.SMBus(1)
 address0 = 0x05
-address3 = 0x04
-trape    = 
+address1 = 0x06
+address2 = 0x07
+address3 = 0x08
+trap     = 0x11
+prote_1  = 0x12
+porte_3  = 0x13
 with t.open('pipes/enigme_0', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_1', 'w') as f:
@@ -37,7 +41,6 @@ def enigme_0():
         print(command)
     if command[1] == "True":
         GPIO.output(12, readNumber(address0))
-        print(readNumber(address0))
         with t.open('pipes/enigme_0', 'w') as f:
             f.write(str(readNumber(address0))+"--True")
     if command[1] == "false":
@@ -65,6 +68,6 @@ def enigme_3():
         writeNumber(address3, int(2))
 
 while True:
-    enigme_0()
+    # enigme_0()
     enigme_3()
     time.sleep( 1 )
