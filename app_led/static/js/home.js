@@ -8,7 +8,7 @@ function enigme(id, action, auto = "true"){
 }
 
 function porte(id, action, auto = "true") {
-  porte_socket.emit(id, {id: id, action: action, auto: auto})
+  porte_socket.emit(id, {action: action, auto: auto})
 }
 
 function ledemit(id, value) {
