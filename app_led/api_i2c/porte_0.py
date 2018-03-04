@@ -2,7 +2,7 @@ import smbus
 import pipes
 import time
 
-class Porte():
+class Porte:
     def __init__():
         self.bus = smbus.SMBus(1)
         self.porte_0  = 0x11 # trape apres enigme_1
