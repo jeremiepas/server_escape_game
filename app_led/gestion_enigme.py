@@ -36,7 +36,7 @@ with t.open('pipes/enigme_3', 'w') as f:
     f.write('0--True--false') # valeur,  mode-auto, restart enigme
 
 with t.open('pipes/porte_0', 'w') as f:
-    f.write('0--True') #valeur,  mode-auto
+    f.write('0--True--0') #valeur,  mode-auto
 with t.open('pipes/porte_1', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/porte_2', 'w') as f:
