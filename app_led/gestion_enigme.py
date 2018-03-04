@@ -65,11 +65,11 @@ def enigme_1():
         GPIO.output(12, int(command[0]))
 
 def enigme_3():
-    print(readNumber(address3))
-
     with t.open('pipes/enigme_3', 'r') as f:
         command = f.read().split('--')
         print(command)
+        print(readNumber(address3))
+
     if command[0] == '-1':
         with t.open('pipes/enigme_3', 'w') as f:
             f.write(str(readNumber(address3))+"--True--false")
@@ -78,7 +78,7 @@ def enigme_3():
             with t.open('pipes/enigme_3', 'w') as f:
                 f.write(str(readNumber(address3))+"--True--false")
         if command[1] == "false":
-            writeNumber(address3, int(command[0]))
+            writeNumber(address3, int(command[0] == 1? 3 : command[0] ))
         if command[2] == "True":
             writeNumber(address3, int(2))
             with t.open('pipes/enigme_3', 'w') as f:

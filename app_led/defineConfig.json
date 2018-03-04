@@ -18,7 +18,10 @@
   "porte":
     [
       {
-        "id": 0, "name": "porte_0", "titre": "trape bar","description": "porte du bar"
+        "id": 0, "name": "porte_0", "titre": "trape bar", "description": "porte du bar"
+      },
+      {
+        "id": 1, "name": "porte_1", "titre": "trape clavier",  "description": "trape pour ouvrire le clavier"
       },
       {
         "id": 1, "name": "porte_1", "titre": "potre 1", "description": "porte de la salle 1"
@@ -28,7 +31,12 @@
       }
     ],
   "led":
-  {
-
-  }
+  [
+    {
+      "id": 0, "name": "led_0", "titre": "led salle 1" , "description": "led salle une deux couleur blanc chaud et rouge "
+    },
+    {
+      "id": 1, "name": "led_1", "titre": "led salle 3" , "description": "led salle une deux couleur blanc chaud et rouge "
+    }
+  ]
 }
