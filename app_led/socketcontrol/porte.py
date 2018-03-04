@@ -28,7 +28,7 @@ def enigme(reponse):
     reponse.get(id)
     emit('enigme', reponse, namespace='/enigme')
 
-@enigmeSocket.on('info_porte')
+@porteSocket.on('info_porte')
 def enigme(reponse):
     print( infoportes())
     emit('info_porte', infoportes(), namespace='/enigme')
