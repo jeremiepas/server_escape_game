@@ -35,7 +35,6 @@ def enigme(reponse):
 
 @enigmeSocket.on('enigme_3')
 def enigme(reponse):
-    print(reponse)
     if reponse['action'] == "reload":
         with t.open('pipes/enigme_3', 'w') as f:
             f.write("0--"+str(reponse['auto'])+"--True")

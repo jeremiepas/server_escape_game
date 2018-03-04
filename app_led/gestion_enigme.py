@@ -68,16 +68,20 @@ def enigme_3():
     with t.open('pipes/enigme_3', 'r') as f:
         command = f.read().split('--')
         print(command)
-    if command[1] == "True":
-        with t.open('pipes/enigme_1', 'w') as f:
+    if command[0] == '-1':
+        with t.open('pipes/enigme_3', 'w') as f:
             f.write(str(readNumber(address3))+"--True--false")
-    if command[1] == "false":
-        writeNumber(address3, int(command[0]))
-    if command[2] == "True":
-        writeNumber(address3, int(2))
-        print(readNumber(address3))
-        with t.open('pipes/enigme_1', 'w') as f:
-            f.write(str(readNumber(address3))+"--True--false")
+    else:
+        if command[1] == "True":
+            with t.open('pipes/enigme_3', 'w') as f:
+                f.write(str(readNumber(address3))+"--True--false")
+        if command[1] == "false":
+            writeNumber(address3, int(command[0]))
+        if command[2] == "True":
+            writeNumber(address3, int(2))
+            print(readNumber(address3))
+            with t.open('pipes/enigme_3', 'w') as f:
+                f.write(str(readNumber(address3))+"--True--false")
 
 while True:
     # enigme_0()
