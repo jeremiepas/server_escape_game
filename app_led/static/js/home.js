@@ -3,7 +3,6 @@ global_socket = io.connect('http://' + document.domain + ':' + location.port + n
 enigme_socket = io('/enigme');
 
 function enigme(id, action, auto = "true"){
-  console.log(id);
   enigme_socket.emit(id, {action: action, auto: auto})
 }
 function porte(id, action) {
@@ -22,27 +21,28 @@ window.onload = function(){
   boucle();
   enigme_socket.on('info', function(str){
     data = JSON.parse(str);
-    classenigme_0 = document.getElementById('enigme_0').classList
-    classenigme_1 = document.getElementById('enigme_1').classList
+    classenigme = []
+    classenigme[0] = document.getElementById('enigme_0').classList
+    classenigme[1] = document.getElementById('enigme_1').classList
+    classenigme[2] = document.getElementById('enigme_2').classList
+    classenigme[3] = document.getElementById('enigme_3').classList
+    for (var i = 0; i < classenigme.length; i++) {
+      console.log(data.enigme[i])
+      if(data.enigme[i] == 1){
+        classenigme[i].add("green");
+        classenigme[i].remove("grey");
+        classenigme[i].remove("red");
+      } else if (data.enigme[i] == 0) {
+        classenigme[i].add("red");
+        classenigme[i].remove("grey");
+        classenigme[i].remove("green");
+      } else {
+        classenigme[i].remove("red");
+        classenigme[i].remove("grey");
+        classenigme[i].add("green");
+      }
+    }
 
-    if(data.enigme_0 == "1"){
-      classenigme_0.add("green");
-      classenigme_0.remove("grey");
-      classenigme_0.remove("red");
-    } else {
-      classenigme_0.add("red");
-      classenigme_0.remove("grey");
-      classenigme_0.remove("green");
-    }
-    if(data.enigme_1 == "1"){
-      classenigme_1.add("green");
-      classenigme_1.remove("grey");
-      classenigme_1.remove("red");
-    } else {
-      classenigme_1.add("red");
-      classenigme_1.remove("grey");
-      classenigme_1.remove("green");
-    }
   });
 
     // $('form#echo').submit(function(event){

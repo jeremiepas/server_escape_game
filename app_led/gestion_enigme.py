@@ -14,7 +14,7 @@ t = pipes.Template()
 bus = smbus.SMBus(1)
 address0 = 0x05
 address3 = 0x04
-
+trape    = 
 with t.open('pipes/enigme_0', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_1', 'w') as f:
