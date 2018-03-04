@@ -105,5 +105,4 @@ while True:
     porte.porte()
     # enigme_0()
     enigme_3()
-    porte_0()
     time.sleep( 1 )
