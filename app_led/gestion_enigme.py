@@ -31,15 +31,15 @@ with t.open('pipes/enigme_3', 'w') as f:
 def writeNumber(address, value):
     try:
         bus.write_byte(address, value)
-        return -1
+        return 1
     except OSError as e:
-        return "no connection"
+        return -1
 def readNumber(address):
     try:
         number = bus.read_byte(address)
         return number
     except OSError as e:
-        return "no connection"
+        return -1
 
 
 
