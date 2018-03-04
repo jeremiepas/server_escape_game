@@ -19,7 +19,7 @@ def infoportes():
         porte2 = f.read().split('--')
     with t.open('pipes/porte_3', 'r') as f:
         porte3 = f.read().split('--')
-    return '{"enigme": ['+str(porte0[0])+', '+str(porte1[0])+', '+str(porte2[0])+', '+str(porte3[0])+']}'
+    return '{"porte": ['+str(porte0[0])+', '+str(porte1[0])+', '+str(porte2[0])+', '+str(porte3[0])+']}'
 
 
 

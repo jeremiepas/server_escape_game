@@ -53,12 +53,12 @@ window.onload = function(){
     classenigme[2] = document.getElementById('porte_2').classList
     classenigme[3] = document.getElementById('porte_3').classList
     for (var i = 0; i < classenigme.length; i++) {
-      console.log(data.enigme[i])
-      if(data.enigme[i] == 1){
+      console.log(data.porte[i])
+      if(data.porte[i] == 1){
         classenigme[i].add("green");
         classenigme[i].remove("grey");
         classenigme[i].remove("red");
-      } else if (data.enigme[i] == 0) {
+      } else if (data.porte[i] == 0) {
         classenigme[i].add("red");
         classenigme[i].remove("grey");
         classenigme[i].remove("green");
