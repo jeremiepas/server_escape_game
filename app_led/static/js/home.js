@@ -6,8 +6,8 @@ function enigme(id, action, auto = "true"){
   enigme_socket.emit(id, {action: action, auto: auto})
 }
 
-function porte(id, action) {
-  enigme_socket.emit("porte", {id: id, action: action})
+function porte(id, action, auto = "true") {
+  enigme_socket.emit("porte", {id: id, action: action, auto: auto})
 }
 
 function ledemit(id, value) {
@@ -20,7 +20,7 @@ function boucle(){
 
 window.onload = function(){
   boucle();
-  enigme_socket.on('info', function(str){
+  enigme_socket.on('info_enigme', function(str){
     data = JSON.parse(str);
     classenigme = []
     classenigme[0] = document.getElementById('enigme_0').classList

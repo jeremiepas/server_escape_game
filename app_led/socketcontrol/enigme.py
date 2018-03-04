@@ -42,7 +42,7 @@ def enigme(reponse):
         with t.open('pipes/enigme_3', 'w') as f:
             f.write(reponse['action']+"--"+str(reponse['auto'])+"--false")
 
-@enigmeSocket.on('info')
+@enigmeSocket.on('info_enigme')
 def enigme(reponse):
     print( infoenigmes())
-    emit('info', infoenigmes(), namespace='/enigme')
+    emit('info_enigme', infoenigmes(), namespace='/enigme')
