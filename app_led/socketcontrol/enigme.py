@@ -41,7 +41,7 @@ def enigme(reponse):
             f.write("0--"+str(reponse['auto'])+"--True")
     else:
         with t.open('pipes/enigme_3', 'w') as f:
-            f.write(reponse['action']+"--"+str(reponse['auto'])+"--fasle"))
+            f.write(reponse['action']+"--"+str(reponse['auto'])+"--fasle")
 
 @enigmeSocket.on('info')
 def enigme(reponse):
