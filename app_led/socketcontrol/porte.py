@@ -30,5 +30,4 @@ def porte(reponse):
         f.write(reponse['action']+"--"+str(reponse['auto']))
 @porteSocket.on('info_porte')
 def enigme(reponse):
-    print( infoportes())
     emit('info_porte', infoportes(), namespace='/porte')
