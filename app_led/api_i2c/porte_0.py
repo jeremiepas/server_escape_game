@@ -2,10 +2,11 @@ import smbus
 import pipes
 import time
 
+bus = smbus.SMBus(1)
+
 class Porte:
     def __init__(self):
         self.t = pipes.Template()
-        self.bus = smbus.SMBus(1)
         self.porte_0  = 0x11 # trape apres enigme_1
         with self.t.open('pipes/porte_0', 'w') as f:
             f.write('0--True--') # valeur,  mode-aut, valeur-enigme
