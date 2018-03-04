@@ -60,7 +60,7 @@ def enigme_1():
 def enigme_3():
     with t.open('pipes/enigme_3', 'r') as f:
         command = f.read().split('--')
-        print(command)
+        print(command[2])
     if command[1] == "True":
         with t.open('pipes/enigme_1', 'w') as f:
             f.write(str(readNumber(address3))+"--True--false")
