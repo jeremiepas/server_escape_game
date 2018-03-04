@@ -24,10 +24,10 @@
         "id": 1, "name": "porte_1", "titre": "trape clavier",  "description": "trape pour ouvrire le clavier"
       },
       {
-        "id": 1, "name": "porte_1", "titre": "potre 1", "description": "porte de la salle 1"
+        "id": 2, "name": "porte_2", "titre": "potre 1", "description": "porte de la salle 1"
       },
       {
-        "id": 2, "name": "porte_2", "titre": "porte 2" , "description": "porte de la salle 2"
+        "id": 3, "name": "porte_3", "titre": "porte 2" , "description": "porte de la salle 2"
       }
     ],
   "led":
