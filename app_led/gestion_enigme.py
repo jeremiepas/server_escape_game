@@ -78,7 +78,7 @@ def enigme_3():
             with t.open('pipes/enigme_3', 'w') as f:
                 f.write(str(readNumber(address3))+"--True--false")
         if command[1] == "false":
-            writeNumber(address3, int(command[0])
+            writeNumber(address3, int(command[0]))
         if command[2] == "True":
             writeNumber(address3, int(2))
             with t.open('pipes/enigme_3', 'w') as f:
