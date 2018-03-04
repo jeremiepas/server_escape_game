@@ -10,7 +10,7 @@ GPIO.setup(12, GPIO.OUT)
 
 # ser = serial.Serial('/dev/ttyUSB0', 115200)
 t = pipes.Template()
-porte_0 = Porte.Porte()
+porte = Porte.Porte()
 
 bus = smbus.SMBus(1)
 address0 = 0x05
@@ -102,7 +102,7 @@ def enigme_3():
 
 
 while True:
-    porte_0.porte_0()
+    porte.porte()
     # enigme_0()
     enigme_3()
     porte_0()

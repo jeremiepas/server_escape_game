@@ -9,7 +9,7 @@ class Porte:
         self.porte_0  = 0x11 # trape apres enigme_1
         with self.t.open('pipes/porte_0', 'w') as f:
             f.write('0--True--') # valeur,  mode-aut, valeur-enigme
-    def porte_0():
+    def porte():
         with self.t.open('pipes/porte_0', 'r') as f:
             command = f.read().split('--')
             print(command)
