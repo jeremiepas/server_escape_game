@@ -23,6 +23,8 @@ with t.open('pipes/enigme_0', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_1', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
+with t.open('pipes/enigme_2', 'w') as f:
+    f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_3', 'w') as f:
     f.write('0--True--false') # valeur,  mode-auto, restart enigme
 
@@ -33,7 +35,6 @@ def readNumber(address):
     number = bus.read_byte(address)
     return number
 
-#def enigme(id, action, auto):
 
 def enigme_0():
     with t.open('pipes/enigme_0', 'r') as f:

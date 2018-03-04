@@ -15,7 +15,11 @@ def infoenigmes():
         enigme0 = f.read().split('--')
     with t.open('pipes/enigme_1', 'r') as f:
         enigme1 = f.read().split('--')
-    return '{"enigme": ['+str(enigme0[0])+', '+str(enigme1[0])+']}'
+    with t.open('pipes/enigme_2', 'r') as f:
+        enigme1 = f.read().split('--')
+    with t.open('pipes/enigme_3', 'r') as f:
+        enigme1 = f.read().split('--')
+    return '{"enigme": ['+str(enigme0[0])+', '+str(enigme1[0])+', '+str(enigme2[0])+', '+str(enigme3[0])+']}'
 
 
 
