@@ -102,7 +102,7 @@ def enigme_3():
 
 
 while True:
-    porte_0()
+    porte_0.porte_0()
     # enigme_0()
     enigme_3()
     porte_0()
