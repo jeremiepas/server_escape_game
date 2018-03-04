@@ -4,6 +4,8 @@ enigme_socket = io('/enigme');
 porte_socket  = io('/porte');
 
 function enigme(id, action, auto = "true"){
+  console.log(id)
+
   porte_socket.emit(id, {action: action, auto: auto})
 }
 
