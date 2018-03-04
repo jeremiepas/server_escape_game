@@ -29,11 +29,18 @@ with t.open('pipes/enigme_3', 'w') as f:
     f.write('0--True--false') # valeur,  mode-auto, restart enigme
 
 def writeNumber(address, value):
-    bus.write_byte(address, value)
-    return -1
+    try:
+        bus.write_byte(address, value)
+        return -1
+    except OSError as e:
+        return "no connection"
 def readNumber(address):
-    number = bus.read_byte(address)
-    return number
+    try:
+        number = bus.read_byte(address)
+        return number
+    except OSError as e:
+        return "no connection"
+
 
 
 def enigme_0():
@@ -60,7 +67,7 @@ def enigme_1():
 def enigme_3():
     with t.open('pipes/enigme_3', 'r') as f:
         command = f.read().split('--')
-        print(command[2])
+        print(command)
     if command[1] == "True":
         with t.open('pipes/enigme_1', 'w') as f:
             f.write(str(readNumber(address3))+"--True--false")
@@ -68,6 +75,7 @@ def enigme_3():
         writeNumber(address3, int(command[0]))
     if command[2] == "True":
         writeNumber(address3, int(2))
+        f.write(str(readNumber(address3))+"--True--false")
 
 while True:
     # enigme_0()
