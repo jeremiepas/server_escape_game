@@ -5,6 +5,7 @@ enigme_socket = io('/enigme');
 function enigme(id, action, auto = "true"){
   enigme_socket.emit(id, {action: action, auto: auto})
 }
+
 function porte(id, action) {
   enigme_socket.emit("porte", {id: id, action: action})
 }
