@@ -15,7 +15,7 @@ class Porte:
             print(command)
         if command[1] == "True":
             # GPIO.output(12, readNumber(self.porte_0))
-            with t.open('pipes/porte_0', 'w') as f:
+            with self.t.open('pipes/porte_0', 'w') as f:
                 f.write(str(readNumber(self.porte_0))+"--True--"+str(command[2]))
         if command[1] == "false":
             return 1
