@@ -30,7 +30,6 @@ window.onload = function(){
     classenigme[2] = document.getElementById('enigme_2').classList
     classenigme[3] = document.getElementById('enigme_3').classList
     for (var i = 0; i < classenigme.length; i++) {
-      console.log(data.enigme[i])
       if(data.enigme[i] == 1){
         classenigme[i].add("green");
         classenigme[i].remove("grey");
