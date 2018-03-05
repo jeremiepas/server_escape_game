@@ -100,7 +100,7 @@ def enigme_3():
 
 
 while True:
-    porte.porte_A()
+    porte.trape_A()
     # enigme_0()
     enigme_3()
     time.sleep( 1 )
