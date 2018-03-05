@@ -83,8 +83,6 @@ def enigme_1():
 def enigme_3():
     with t.open('pipes/enigme_3', 'r') as f:
         command = f.read().split('--')
-        print(command)
-        print(readNumber(address3))
 
     if command[0] == '-1':
         with t.open('pipes/enigme_3', 'w') as f:

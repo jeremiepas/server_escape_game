@@ -1,0 +1,2 @@
+flask_socketio
+git+http://github.com/m-housh/io-blueprint.git
