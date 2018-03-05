@@ -19,11 +19,11 @@ class Porte:
         if command[1] == "True":
             # writeNumber(self.porte_0, int(command[2]))
             with self.t.open('pipes/porte_0', 'w') as f:
-                f.write(str(readNumber(self.porte_0))+"--True--"+str(command[2]))
+                f.write(str(readNumber(self.porte_0))+"--True--")
 
         if command[1] == "false":
             writeNumber(self.porte_0, int(command[0]))
-            f.write(str(readNumber(self.porte_0))+"--True--"+str(command[2]))
+            f.write(str(readNumber(self.porte_0))+"--True--")
 
     def porte_B(self):
         with self.t.open('pipes/porte_1', 'r') as f:
