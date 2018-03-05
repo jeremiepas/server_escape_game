@@ -26,7 +26,7 @@ class Porte:
             with self.t.open('pipes/porte_0', 'w') as f:
                 f.write(str(readNumber(self.porte_0))+"--True--")
 
-    def porte_B(self):
+    def trape_B(self):
         with self.t.open('pipes/porte_1', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
