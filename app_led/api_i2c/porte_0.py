@@ -30,12 +30,14 @@ class Porte:
         with self.t.open('pipes/porte_1', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            writeNumber(self.porte_1, int(command[2]))
+            # writeNumber(self.porte_0, int(command[2]))
             with self.t.open('pipes/porte_1', 'w') as f:
-                f.write(str(readNumber(self.porte_1))+"--True--"+str(command[2]))
-        if command[1] == "false":
-            writeNumber(self.porte_1, int(command[1]))
+                f.write(str(readNumber(self.porte_1))+"--True--")
 
+        if command[1] == "false":
+            writeNumber(self.porte_, int(command[0]))
+            with self.t.open('pipes/porte_1', 'w') as f:
+                f.write(str(readNumber(self.porte_1))+"--True--")
 
 def writeNumber(address, value):
     try:

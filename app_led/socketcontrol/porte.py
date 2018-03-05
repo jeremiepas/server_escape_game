@@ -34,11 +34,15 @@ def porte(reponse):
 @porteSocket.on('porte_2')
 def porte(reponse):
     with t.open('pipes/porte_2', 'w') as f:
-        f.write(reponse['action']+"--"+str(reponse['auto']))
+        p = f.read().split('--')
+    with t.open('pipes/porte_2', 'w') as f:
+        f.write(reponse['action']+"--"+str(reponse['auto'])+"--"+p[2])
 @porteSocket.on('porte_3')
 def porte(reponse):
+        with t.open('pipes/porte_3', 'w') as f:
+            p = f.read().split('--')
     with t.open('pipes/porte_3', 'w') as f:
-        f.write(reponse['action']+"--"+str(reponse['auto']))
+        f.write(reponse['action']+"--"+str(reponse['auto']+"--"+p[2]))
 @porteSocket.on('info_porte')
 def enigme(reponse):
     emit('info_porte', infoportes(), namespace='/porte')
