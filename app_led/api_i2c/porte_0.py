@@ -23,7 +23,7 @@ class Porte:
 
         if command[1] == "false":
             print(int(command[0]))
-            writeNumber(self.trape_0, int(command[0]))
+            writeNumber(self.portes_0, int(command[0]))
 
     def porte_B(self):
         with self.t.open('pipes/porte_1', 'r') as f:
