@@ -35,7 +35,7 @@ class Porte:
                 f.write(str(readNumber(self.porte_1))+"--True--")
 
         if command[1] == "false":
-            writeNumber(self.porte_, int(command[0]))
+            writeNumber(self.porte_1, int(command[0]))
             with self.t.open('pipes/porte_1', 'w') as f:
                 f.write(str(readNumber(self.porte_1))+"--True--")
 
