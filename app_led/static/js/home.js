@@ -10,7 +10,7 @@ function enigme(id, action, auto = "true"){
 }
 
 function porte(id, action, auto = "true") {
-  console.log(id)
+  console.log({action: action, auto: auto});
   porte_socket.emit(id, {action: action, auto: auto})
 }
 
