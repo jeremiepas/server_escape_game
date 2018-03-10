@@ -8,7 +8,9 @@ class Porte:
     def __init__(self):
         self.t = pipes.Template()
         self.porte_0  = 0x11 # trape apres enigme_1
-        self.porte_1   = 0x12 # trape clavier
+        self.porte_1  = 0x12 # trape clavier
+        self.porte_2  = 0x13 # porte salle 1 -> 2
+        self.porte_3  = 0x14 # porte salle 2 -> 3
         with self.t.open('pipes/porte_0', 'w') as f:
             f.write('0--True--0') # valeur,  mode-aut, valeur-enigme
         with self.t.open('pipes/porte_1', 'w') as f:
