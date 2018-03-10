@@ -30,19 +30,10 @@ with t.open('pipes/enigme_0', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_1', 'w') as f:
     f.write('0--True') #valeur,  mode-auto
-with t.open('pipes/enigme_2', 'w') as f:
-    f.write('0--True') #valeur,  mode-auto
+# with t.open('pipes/enigme_2', 'w') as f:
+#     f.write('0--True') #valeur,  mode-auto
 with t.open('pipes/enigme_3', 'w') as f:
     f.write('0--True--false') # valeur,  mode-auto, restart enigme
-
-with t.open('pipes/porte_0', 'w') as f:
-    f.write('0--True--0') #valeur,  mode-auto
-with t.open('pipes/porte_1', 'w') as f:
-    f.write('0--True') #valeur,  mode-auto
-with t.open('pipes/porte_2', 'w') as f:
-    f.write('0--True--0') #valeur,  mode-auto
-with t.open('pipes/porte_3', 'w') as f:
-    f.write('0--True--0') # valeur,  mode-auto, restart enigme
 
 
 def writeNumber(address, value):
@@ -100,9 +91,11 @@ def enigme_3():
 
 
 while True:
+    enigme_0()
+    enigme_3()
+    enigme_1()
     porte.trape_A()
     porte.trape_B()
-
-    # enigme_0()
-    enigme_3()
-    time.sleep( 1 )
+    porte.porte_A()
+    porte.porte_B()
+    time.sleep( 2 )

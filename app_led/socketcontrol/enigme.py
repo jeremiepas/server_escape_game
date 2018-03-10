@@ -2,6 +2,7 @@ import serial
 import pipes
 import threading
 from io_blueprint import IOBlueprint
+from flask import jsonify
 from flask_socketio import SocketIO, emit
 
 t = pipes.Template()
@@ -9,7 +10,7 @@ t = pipes.Template()
 
 enigmeSocket =  IOBlueprint('/enigme')
 # ser = serial.Serial('/dev/ttyUSB2', 115200)
-
+test = []
 def infoenigmes():
     with t.open('pipes/enigme_0', 'r') as f:
         enigme0 = f.read().split('--')
@@ -19,18 +20,26 @@ def infoenigmes():
         enigme2 = f.read().split('--')
     with t.open('pipes/enigme_3', 'r') as f:
         enigme3 = f.read().split('--')
-    return '{"enigme": ['+str(enigme0[0])+', '+str(enigme1[0])+', '+str(enigme2[0])+', '+str(enigme3[0])+']}'
+
+    # test["enigme"] = [enigme0[0], enigme1[0], enigme2[0], enigme3[0]] #[str(enigme0[0]), str(enigme1[0]), str(enigme2[0]), str(enigme3[0])]
+    return '{ \"enigme\": [\"'+str(enigme0[0])+'\", \"'+str(enigme1[0])+'\", \"'+str(enigme2[0])+'\", \"'+str(enigme3[0])+'\"] }'
 
 
 
 @enigmeSocket.on('enigme_0')
 def enigme(reponse):
+    print(reponse)
     with t.open('pipes/enigme_0', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
 
 @enigmeSocket.on('enigme_1')
 def enigme(reponse):
     with t.open('pipes/enigme_1', 'w') as f:
+        f.write(reponse['action']+"--"+str(reponse['auto']))
+
+@enigmeSocket.on('enigme_2')
+def enigme(reponse):
+    with t.open('pipes/enigme_2', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']))
 
 @enigmeSocket.on('enigme_3')

@@ -19,6 +19,7 @@ def infoportes():
         porte2 = f.read().split('--')
     with t.open('pipes/porte_3', 'r') as f:
         porte3 = f.read().split('--')
+    print('{"porte": ['+str(porte0[0])+', '+str(porte1[0])+', '+str(porte2[0])+', '+str(porte3[0])+']}')
     return '{"porte": ['+str(porte0[0])+', '+str(porte1[0])+', '+str(porte2[0])+', '+str(porte3[0])+']}'
 
 
@@ -33,14 +34,14 @@ def porte(reponse):
         f.write(reponse['action']+"--"+str(reponse['auto']))
 @porteSocket.on('porte_2')
 def porte(reponse):
-    with t.open('pipes/porte_2', 'w') as f:
+    with t.open('pipes/porte_2', 'r') as f:
         p = f.read().split('--')
     with t.open('pipes/porte_2', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto'])+"--"+p[2])
 @porteSocket.on('porte_3')
 def porte(reponse):
-        with t.open('pipes/porte_3', 'w') as f:
-            p = f.read().split('--')
+    with t.open('pipes/porte_3', 'r') as f:
+        p = f.read().split('--')
     with t.open('pipes/porte_3', 'w') as f:
         f.write(reponse['action']+"--"+str(reponse['auto']+"--"+p[2]))
 @porteSocket.on('info_porte')

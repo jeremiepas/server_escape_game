@@ -7,6 +7,7 @@ from socketcontrol.porte import porteSocket
 
 from controller.led import Led
 from controller.home import Home
+from controller.enigme_bot import Enigme_bot
 import configparser
 
 config = configparser.ConfigParser()
@@ -19,6 +20,7 @@ config.read('./config.ini')
 app = Flask(__name__, static_url_path='/static')
 app.register_blueprint(Home, url_prefix='/')
 app.register_blueprint(Led, url_prefix='/led')
+app.register_blueprint(Enigme_bot, url_prefix='/enigme_bot')
 
 socketio = SocketIO(app)
 

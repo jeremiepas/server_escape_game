@@ -4,13 +4,10 @@ enigme_socket = io('/enigme');
 porte_socket  = io('/porte');
 
 function enigme(id, action, auto = "true"){
-  console.log(id)
-
-  porte_socket.emit(id, {action: action, auto: auto})
+  enigme_socket.emit(id, {action: action, auto: auto})
 }
 
 function porte(id, action, auto = "true") {
-  console.log({action: action, auto: auto});
   porte_socket.emit(id, {action: action, auto: auto})
 }
 
@@ -20,7 +17,7 @@ function ledemit(id, value) {
 function boucle(){
   enigme_socket.emit("info_enigme", 'test')
   porte_socket.emit("info_porte", 'test')
-  setTimeout("boucle()",1000);
+  setTimeout("boucle()",3300);
 }
 
 window.onload = function(){
@@ -50,6 +47,8 @@ window.onload = function(){
   });
   porte_socket.on('info_porte', function(str){
     data = JSON.parse(str);
+    console.log(data);
+
     classenigme = []
     classenigme[0] = document.getElementById('porte_0').classList
     classenigme[1] = document.getElementById('porte_1').classList

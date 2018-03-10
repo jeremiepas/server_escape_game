@@ -13,6 +13,10 @@ class Porte:
             f.write('0--True--0') # valeur,  mode-aut, valeur-enigme
         with self.t.open('pipes/porte_1', 'w') as f:
             f.write('0--True--0') # valeur,  mode-aut, valeur-enigme
+        with self.t.open('pipes/porte_2', 'w') as f:
+            f.write('0--True--0') # valeur,  mode-aut, valeur-enigme
+        with self.t.open('pipes/porte_3', 'w') as f:
+            f.write('0--True--0') # valeur,  mode-aut, valeur-enigme
     def trape_A(self):
         with self.t.open('pipes/porte_0', 'r') as f:
             command = f.read().split('--')
@@ -38,6 +42,30 @@ class Porte:
             writeNumber(self.porte_1, int(command[0]))
             with self.t.open('pipes/porte_1', 'w') as f:
                 f.write(str(readNumber(self.porte_1))+"--True--")
+    def porte_A(self):
+        with self.t.open('pipes/porte_2', 'r') as f:
+            command = f.read().split('--')
+        if command[1] == "True":
+            writeNumber(self.porte_2, int(command[2]))
+            with self.t.open('pipes/porte_2', 'w') as f:
+                f.write(str(readNumber(self.porte_2))+"--True--"+str(command[2]))
+
+        if command[1] == "false":
+            writeNumber(self.porte_2, int(command[0]))
+            with self.t.open('pipes/porte_2', 'w') as f:
+                f.write(str(readNumber(self.porte_2))+"--True--"+str(command[0]))
+    def porte_B(self):
+        with self.t.open('pipes/porte_3', 'r') as f:
+            command = f.read().split('--')
+        if command[1] == "True":
+            writeNumber(self.porte_3, int(command[2]))
+            with self.t.open('pipes/porte_3', 'w') as f:
+                f.write(str(readNumber(self.porte_3))+"--True--"+str(command[2]))
+
+        if command[1] == "false":
+            writeNumber(self.porte_3, int(command[0]))
+            with self.t.open('pipes/porte_3', 'w') as f:
+                f.write(str(readNumber(self.porte_3))+"--True--"+str(command[2]))
 
 def writeNumber(address, value):
     try:
