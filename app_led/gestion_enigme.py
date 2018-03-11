@@ -14,8 +14,8 @@ porte = Porte.Porte()
 
 bus = smbus.SMBus(1)
 address0 = 0x05
-address1 = 0x06
-address2 = 0x04
+address1 = 0x04
+address2 = 0x07
 address3 = 0x08
 
 led_0 = 0x21 # led salle une couleur blanc joune puis couleur rouge
