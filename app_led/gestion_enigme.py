@@ -57,7 +57,8 @@ def enigme_0():
             f.write(str(readNumber(address0))+"--True")
     if command[1] == "false":
         with t.open('pipes/porte_0', 'w') as f:
-                f.write(str(command[0])+"--True--"+str(command[0])
+            f.write(str(command[0])+"--True--"+str(command[0]))
+            
 def enigme_1():
     with t.open('pipes/enigme_1', 'r') as f:
         command = f.read().split('--')
