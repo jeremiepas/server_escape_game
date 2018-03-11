@@ -23,14 +23,14 @@ class Porte:
         with self.t.open('pipes/porte_0', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            # writeNumber(self.porte_0, int(command[2]))
+            writeNumber(self.porte_0, int(command[2]))
             with self.t.open('pipes/porte_0', 'w') as f:
-                f.write(str(readNumber(self.porte_0))+"--True--")
+                f.write(str(readNumber(self.porte_0))+"--True--"+str(command[2]))
 
         if command[1] == "false":
             writeNumber(self.porte_0, int(command[0]))
             with self.t.open('pipes/porte_0', 'w') as f:
-                f.write(str(readNumber(self.porte_0))+"--True--")
+                f.write(str(readNumber(self.porte_0))+"--True--"+str(command[0]))
 
     def trape_B(self):
         with self.t.open('pipes/porte_1', 'r') as f:
