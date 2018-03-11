@@ -7,7 +7,7 @@ bus = smbus.SMBus(1)
 class Porte:
     def __init__(self):
         self.t = pipes.Template()
-        self.porte_0  = 0x11 # trape apres enigme_1
+        self.porte_0  = 0x04 # trape apres enigme_1
         self.porte_1  = 0x12 # trape clavier
         self.porte_2  = 0x13 # porte salle 1 -> 2
         self.porte_3  = 0x14 # porte salle 2 -> 3
@@ -24,13 +24,25 @@ class Porte:
             command = f.read().split('--')
         if command[1] == "True":
             # writeNumber(self.porte_0, int(command[2]))
-            with self.t.open('pipes/porte_0', 'w') as f:
-                f.write(str(readNumber(self.porte_0))+"--True--")
+            if readNumber(self.porte_0) == 2:
+                with self.t.open('pipes/porte_0', 'w') as f:
+                    f.write(str(1)+"--True--")if readNumber(self.porte_0) = 2:
+                        with self.t.open('pipes/porte_0', 'w') as f:
+                            f.write(str(0)+"--True--")
+            if readNumber(self.porte_0) == 3:
+                with self.t.open('pipes/porte_0', 'w') as f:
+                    f.write(str(1)+"--True--")
+
 
         if command[1] == "false":
-            writeNumber(self.porte_0, int(command[0]))
-            with self.t.open('pipes/porte_0', 'w') as f:
-                f.write(str(readNumber(self.porte_0))+"--True--")
+            if int(command[0]) == 1:
+                writeNumber(self.porte_0, int(3))
+                with self.t.open('pipes/porte_0', 'w') as f:
+                    f.write(str(readNumber(self.porte_0))+"--True--")
+            if int(command[0]) == 0:
+                writeNumber(self.porte_0, int(2))
+                with self.t.open('pipes/porte_0', 'w') as f:
+                    f.write(str(2)+"--True--")
 
     def trape_B(self):
         with self.t.open('pipes/porte_1', 'r') as f:
