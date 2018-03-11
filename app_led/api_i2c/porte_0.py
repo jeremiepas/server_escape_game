@@ -26,9 +26,7 @@ class Porte:
             # writeNumber(self.porte_0, int(command[2]))
             if readNumber(self.porte_0) == 2:
                 with self.t.open('pipes/porte_0', 'w') as f:
-                    f.write(str(1)+"--True--")if readNumber(self.porte_0) = 2:
-                        with self.t.open('pipes/porte_0', 'w') as f:
-                            f.write(str(0)+"--True--")
+                    f.write(str(1)+"--True--")
             if readNumber(self.porte_0) == 3:
                 with self.t.open('pipes/porte_0', 'w') as f:
                     f.write(str(1)+"--True--")
@@ -48,7 +46,7 @@ class Porte:
         with self.t.open('pipes/porte_1', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            # writeNumber(self.porte_0, int(command[2]))
+            # writeNumber(self.porte_0, int(command[2]))raspberry
             with self.t.open('pipes/porte_1', 'w') as f:
                 f.write(str(readNumber(self.porte_1))+"--True--")
 
