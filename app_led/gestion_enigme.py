@@ -15,7 +15,7 @@ porte = Porte.Porte()
 bus = smbus.SMBus(1)
 address0 = 0x05
 address1 = 0x06
-address2 = 0x07
+address2 = 0x04
 address3 = 0x08
 
 led_0 = 0x21 # led salle une couleur blanc joune puis couleur rouge
@@ -58,7 +58,7 @@ def enigme_0():
     if command[1] == "false":
         with t.open('pipes/porte_0', 'w') as f:
             f.write(str(command[0])+"--True--"+str(command[0]))
-            
+
 def enigme_1():
     with t.open('pipes/enigme_1', 'r') as f:
         command = f.read().split('--')
