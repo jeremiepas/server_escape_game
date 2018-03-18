@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 # GPIO.setup(6, GPIO.OUT)
 # GPIO.setup(chan_list, GPIO.OUT)
 # GPIO.output(6, GPIO.HIGH)
-# bus = smbus.SMBus(1)
+bus = smbus.SMBus(1)
 
 class Porte:
     def __init__(self):
