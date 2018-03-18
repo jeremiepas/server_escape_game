@@ -2,16 +2,16 @@
   "enigme":
     [
       {
-        "id": 0, "name": "enigme_0", "titre": "enigme 1" , "description": "porte menteau"
+        "id": 0, "name": "enigme_0", "titre": "enigme 1" , "description": "porte manteau"
       },
       {
-        "id": 2, "name": "enigme_1", "titre": "enigme 2", "description": "stendare telephonique"
+        "id": 2, "name": "enigme_1", "titre": "enigme 2", "description": "standard telephonique"
       },
       {
-        "id": 3, "name": "enigme_2", "titre": "enigme 3", "description": "chatbox miroire"
+        "id": 3, "name": "enigme_2", "titre": "enigme 3", "description": "chatbox miroir"
       },
       {
-        "id": 4, "name": "enigme_3", "titre": "enigme 4", "description": "echeque et math"
+        "id": 4, "name": "enigme_3", "titre": "enigme 4", "description": "echec et mat"
       }
     ],
 
@@ -21,7 +21,7 @@
         "id": 0, "name": "porte_0", "titre": "trape bar", "description": "porte du bar"
       },
       {
-        "id": 1, "name": "porte_1", "titre": "trape clavier",  "description": "trape pour ouvrire le clavier"
+        "id": 1, "name": "porte_1", "titre": "trape clavier",  "description": "trappe pour ouvrir le clavier"
       },
       {
         "id": 2, "name": "porte_2", "titre": "potre 1", "description": "porte de la salle 1"
