@@ -4,9 +4,9 @@ import pipes
 import time
 import RPi.GPIO as GPIO
 import api_i2c.porte_0 as Porte
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
-GPIO.setup(12, GPIO.OUT)
+# GPIO.setmode(GPIO.BOARD)
+# GPIO.setwarnings(False)
+# GPIO.setup(12, GPIO.OUT)
 
 # ser = serial.Serial('/dev/ttyUSB0', 115200)
 t = pipes.Template()
@@ -68,7 +68,8 @@ def enigme_1():
         with t.open('pipes/enigme_1', 'w') as f:
             f.write(str(readNumber(address1))+"--True")
     if command[1] == "false":
-        GPIO.output(12, int(command[0]))
+        super
+        # GPIO.output(12, int(command[0]))
 
 def enigme_3():
     with t.open('pipes/enigme_3', 'r') as f:
