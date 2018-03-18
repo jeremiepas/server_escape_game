@@ -4,7 +4,7 @@ import pipes
 import time
 import RPi.GPIO as GPIO
 import api_i2c.porte_0 as Porte
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(12, GPIO.OUT)
 

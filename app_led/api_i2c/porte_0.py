@@ -3,7 +3,7 @@ import pipes
 import time
 
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
+# GPIO.setmode(GPIO.BCM)
 GPIO.setup(6, GPIO.OUT)
 # GPIO.setup(chan_list, GPIO.OUT)
 GPIO.output(6, GPIO.HIGH)
