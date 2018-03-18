@@ -57,6 +57,7 @@ class Porte:
         with self.t.open('pipes/porte_2', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
+            print(command[2])
             GPIO.output(31, int(command[2]))
             # writeNumber(self.porte_2, int(command[2]))
             with self.t.open('pipes/porte_2', 'w') as f:
