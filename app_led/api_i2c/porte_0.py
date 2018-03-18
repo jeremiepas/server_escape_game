@@ -4,9 +4,9 @@ import time
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(31, GPIO.OUT)
+GPIO.setup(31, GPIO.OUT) # gpio06
 # GPIO.setup(chan_list, GPIO.OUT)
-GPIO.output(31, GPIO.HIGH)
+GPIO.output(31, GPIO.LOW)
 bus = smbus.SMBus(1)
 
 class Porte:
@@ -41,7 +41,6 @@ class Porte:
         with self.t.open('pipes/porte_1', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            GPIO.output(31, GPIO.HIGH)
             # writeNumber(self.porte_0, int(command[2]))
             with self.t.open('pipes/porte_1', 'w') as f:
                 f.write(str(readNumber(self.porte_1))+"--True--")
@@ -55,24 +54,28 @@ class Porte:
         with self.t.open('pipes/porte_2', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            writeNumber(self.porte_2, int(command[2]))
+            GPIO.output(31, int(command[2]))
+            # writeNumber(self.porte_2, int(command[2]))
             with self.t.open('pipes/porte_2', 'w') as f:
                 f.write(str(readNumber(self.porte_2))+"--True--"+str(command[2]))
 
         if command[1] == "false":
-            writeNumber(self.porte_2, int(command[0]))
+            GPIO.output(31, int(command[0]))
+            # writeNumber(self.porte_2, int(command[0]))
             with self.t.open('pipes/porte_2', 'w') as f:
                 f.write(str(readNumber(self.porte_2))+"--True--"+str(command[0]))
     def porte_B(self):
         with self.t.open('pipes/porte_3', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
+            GPIO.output(33, int(command[2]))
             # writeNumber(self.porte_3, int(command[2]))
             with self.t.open('pipes/porte_3', 'w') as f:
                 f.write(str(readNumber(self.porte_3))+"--True--"+str(command[2]))
 
         if command[1] == "false":
-            writeNumber(self.porte_3, int(command[0]))
+            GPIO.output(33, int(command[0]))
+            # writeNumber(self.porte_3, int(command[0]))
             with self.t.open('pipes/porte_3', 'w') as f:
                 f.write(str(readNumber(self.porte_3))+"--True--"+str(command[2]))
 
