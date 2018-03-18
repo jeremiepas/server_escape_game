@@ -5,7 +5,7 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(31, GPIO.OUT)
-GPIO.setup(chan_list, GPIO.OUT)
+# GPIO.setup(chan_list, GPIO.OUT)
 GPIO.output(31, GPIO.HIGH)
 bus = smbus.SMBus(1)
 
