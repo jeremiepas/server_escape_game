@@ -3,6 +3,7 @@ import pipes
 import time
 
 import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(31, GPIO.OUT) # gpio06
 GPIO.setup(33, GPIO.OUT) # gpio13
