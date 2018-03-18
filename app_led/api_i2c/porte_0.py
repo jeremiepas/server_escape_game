@@ -4,9 +4,9 @@ import time
 
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(6, GPIO.OUT)
+GPIO.setup(31, GPIO.OUT)
 GPIO.setup(chan_list, GPIO.OUT)
-GPIO.output(6, GPIO.HIGH)
+GPIO.output(31, GPIO.HIGH)
 bus = smbus.SMBus(1)
 
 class Porte:
@@ -41,7 +41,7 @@ class Porte:
         with self.t.open('pipes/porte_1', 'r') as f:
             command = f.read().split('--')
         if command[1] == "True":
-            # GPIO.output(6, GPIO.HIGH)
+            GPIO.output(31, GPIO.HIGH)
             # writeNumber(self.porte_0, int(command[2]))
             with self.t.open('pipes/porte_1', 'w') as f:
                 f.write(str(readNumber(self.porte_1))+"--True--")
