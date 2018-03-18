@@ -5,8 +5,10 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(31, GPIO.OUT) # gpio06
+GPIO.setup(33, GPIO.OUT) # gpio13
 # GPIO.setup(chan_list, GPIO.OUT)
 GPIO.output(31, GPIO.LOW)
+GPIO.output(33, GPIO.LOW)
 bus = smbus.SMBus(1)
 
 class Porte:
