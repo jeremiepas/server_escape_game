@@ -64,7 +64,7 @@ def enigme_1():
         command = f.read().split('--')
 
     if command[1] == "True":
-        print(str(readNumber(address1))
+        # print(str(readNumber(address1))
         with t.open('pipes/enigme_1', 'w') as f:
             f.write(str(readNumber(address1))+"--True")
     if command[1] == "false":
