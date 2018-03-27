@@ -8,6 +8,7 @@ setup(
         'flask',
         'flask-socketio',
         'io_blueprint',
+        'git+http://github.com/m-housh/io-blueprint.git'
         'serial',
     ],
 )

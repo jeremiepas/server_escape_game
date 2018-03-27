@@ -1,2 +1,6 @@
 flask_socketio
 git+http://github.com/m-housh/io-blueprint.git
+flask
+flask-socketio
+io_blueprint
+serial

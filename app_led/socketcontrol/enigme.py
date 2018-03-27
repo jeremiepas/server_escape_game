@@ -6,7 +6,6 @@ from flask import jsonify
 from flask_socketio import SocketIO, emit
 
 t = pipes.Template()
-# t.append('tr a-z A-Z 0-9', '--')
 
 enigmeSocket =  IOBlueprint('/enigme')
 # ser = serial.Serial('/dev/ttyUSB2', 115200)
@@ -21,7 +20,6 @@ def infoenigmes():
     with t.open('pipes/enigme_3', 'r') as f:
         enigme3 = f.read().split('--')
 
-    # test["enigme"] = [enigme0[0], enigme1[0], enigme2[0], enigme3[0]] #[str(enigme0[0]), str(enigme1[0]), str(enigme2[0]), str(enigme3[0])]
     return '{ \"enigme\": [\"'+str(enigme0[0])+'\", \"'+str(enigme1[0])+'\", \"'+str(enigme2[0])+'\", \"'+str(enigme3[0])+'\"] }'
 
 

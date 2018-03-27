@@ -5,7 +5,6 @@ from io_blueprint import IOBlueprint
 from flask_socketio import SocketIO, emit
 
 t = pipes.Template()
-# t.append('tr a-z A-Z 0-9', '--')
 
 ledSocket =  IOBlueprint('/led')
 # ser = serial.Serial('/dev/ttyUSB2', 115200)
