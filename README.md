@@ -5,7 +5,26 @@
 
   le server en question est héberge sur un Raspberry et communique avec les différente partie du jeux (énigme et trappe) en bus et gère les ouverture de deux porte en directe.
 
-## les differente connection
+## déploiement
+
+### lancement serveur
+```
+  export LANG=C.UTF-8
+  export LC_ALL=C.UTF-8
+  export FLASK_APP=app.py
+
+  cd /home/pi/server_escape_game/app_led
+
+  pidflask = flask run --host=0.0.0.0
+
+  pidenigme = python3 gestion_enigme.py
+
+```
+il y a un service de cree sur la plateforme pour l'active il suffi de faire
+```
+  sudo service seerver_game start
+```
+#### les différente connexion
 
 * **image de présentation**
 ![connexion pin Raspberry](./app_led/static/img/IMG_76511.jpg)
