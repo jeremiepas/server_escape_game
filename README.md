@@ -7,7 +7,7 @@
 
 ## déploiement
 
-### lancement serveur
+### lancement du serveur
 ```
   export LANG=C.UTF-8
   export LC_ALL=C.UTF-8
@@ -22,7 +22,7 @@
 ```
 il y a un service de cree sur la plateforme pour l'active il suffi de faire
 ```
-  sudo service seerver_game start
+  sudo service server_game start
 ```
 #### les différente connexion
 
